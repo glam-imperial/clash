@@ -1,0 +1,59 @@
+schema_version: 1
+
+paths:
+  results_root: ""
+  token_set_root: ""
+  output_dir: outputs/clash_analysis
+
+conditions:
+  O: original
+  L: lexical_only
+  P: prosody_only
+  F: fully_neutralised
+  L_TTS: lexical_only_tts_sensitivity
+
+datasets:
+  CMMA:
+    language: zh
+    full_utterances: 3935
+    holdout_utterances: 781
+    bootstrap_unit: conversation
+    conversation_regex: "^(C_[0-9]+)_U_"
+  MUStARD:
+    language: en
+    full_utterances: 690
+    holdout_utterances: 163
+    bootstrap_unit: speaker
+    inference_note: exploratory because the holdout contains three speakers
+
+analysis:
+  seed: 20260914
+  bootstrap_replicates: 2000
+  expected_models: 7
+  expected_full_utterances: 4625
+  expected_holdout_utterances: 944
+  primary_metric: AUROC
+  primary_effects:
+    - L_minus_P
+    - O_minus_L
+  auxiliary_effects:
+    - L_minus_F
+    - P_minus_F
+    - interaction
+
+audio:
+  sample_rate: 16000
+  frame_period_ms: 5.0
+  f0_floor_hz: 50.0
+  f0_ceiling_hz: 600.0
+  target_f0_median_hz: 160.0
+  lexical_f0_spread_semitones:
+    CMMA: 1.5
+    MUStARD: 0.0
+
+validation:
+  f0_correlation_threshold: 0.8
+  energy_correlation_threshold: 0.8
+  report_mean_and_median: true
+  report_threshold_pass_rate: true
+
