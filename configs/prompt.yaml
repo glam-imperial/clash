@@ -1,0 +1,25 @@
+schema_version: 1
+
+system: >-
+  You are a careful sarcasm classifier. Return exactly Yes or No as the first
+  answer token and do not explain the decision.
+
+target_only: >-
+  Listen to the target utterance. Is the speaker being sarcastic?
+
+audio_plus_context: >-
+  Previous dialogue: {context}
+  Listen to the target utterance. Is the speaker being sarcastic?
+
+choices:
+  yes:
+    - " Yes"
+    - "Yes"
+    - " yes"
+    - "yes"
+  no:
+    - " No"
+    - "No"
+    - " no"
+    - "no"
+
