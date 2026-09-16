@@ -3,7 +3,7 @@
 
 Official code layout for controlled lexical-prosodic separation experiments in sarcasm detection.
 
-本仓库给出统一、与贡献者身份无关的论文实现。代码覆盖 WORLD 音频构造、O/L/P/F 客观验证、音频大模型首决策位置打分、全量 context probe、七模型横向比较、AUROC 分解、cluster bootstrap、mixed-effects、多重比较校正和论文图生成。仓库只保存代码、配置与本 README；不包含语音、元数据、标签、预测结果、模型权重或论文结果表。
+代码覆盖 WORLD 音频构造、O/L/P/F 客观验证、音频大模型首决策位置打分、全量 context probe、七模型横向比较、AUROC 分解、cluster bootstrap、mixed-effects、多重比较校正和论文图生成。
 
 ## Repository structure
 
@@ -28,7 +28,6 @@ CLASH/
 └── README.md
 ```
 
-截图中的 `._gitignore` 是 macOS AppleDouble 元数据，不是 GitHub 项目文件。本仓库通过 `.gitignore` 中的 `._*` 排除它。
 
 ### File inventory
 
@@ -60,7 +59,7 @@ CLASH/
 
 `neutralization.py` 先在每个数据集内、无标签地估计固定 carrier，再为每条语句生成四个配对条件。CMMA 的 L 默认保留很小的 F0 spread 以避免完全抹除字调；MUStARD 默认将句内 voiced F0 压平。所有值均在 `configs/dataset.yaml` 中显式配置。
 
-这套代码是公开仓库的统一规范实现。若需要复现已经归档的历史 waveform，必须同时保留当时的音频、依赖版本和配置；不同 WORLD/音高追踪版本不能假定逐采样点相同。
+
 
 ## Methodological policy
 
