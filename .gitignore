@@ -1,4 +1,46 @@
-# Audio data
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Editors and operating systems
+.DS_Store
+._*
+.idea/
+.vscode/
+
+# Data, audio, models, and caches
+data/
+datasets/
+metadata/
+audio/
+models/
+checkpoints/
+cache/
 *.wav
-*.WAV
-*.Wav
+*.flac
+*.mp3
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Generated predictions, tables, figures, and logs
+outputs/
+results/
+predictions/
+*.csv
+*.tsv
+*.parquet
+*.pkl
+*.npy
+*.npz
+*.log
+*.pid
+*.png
+*.pdf
+
