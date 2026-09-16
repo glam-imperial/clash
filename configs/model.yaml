@@ -1,0 +1,45 @@
+schema_version: 1
+
+scoring:
+  primary: token_set_logsumexp
+  sensitivity: single_token
+  decision_position: first_generated_token
+
+inference:
+  batch_size: 1
+  dtype: bfloat16
+  device_map: auto
+  trust_remote_code: true
+  seed: 20260914
+
+models:
+  qwen3_omni_30b:
+    path_or_id: ""
+    processor_path_or_id: ""
+    transformers_class: ""
+    family: audio_llm
+  qwen25_omni_7b:
+    path_or_id: ""
+    processor_path_or_id: ""
+    transformers_class: ""
+    family: audio_llm
+  qwen2_audio_7b:
+    path_or_id: ""
+    processor_path_or_id: ""
+    transformers_class: ""
+    family: audio_llm
+  voxtral_mini_3b:
+    path_or_id: ""
+    processor_path_or_id: ""
+    transformers_class: ""
+    family: audio_llm
+
+analysis_models:
+  - egemaps_logreg
+  - wav2vec2_base_linear_probe
+  - wavlm_base_plus_linear_probe
+  - qwen25_omni_7b
+  - qwen2_audio_7b
+  - qwen3_omni_30b
+  - voxtral_mini_3b
+
